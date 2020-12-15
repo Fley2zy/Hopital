@@ -37,7 +37,8 @@ class AccueilController extends AbstractController
             'chambres' => $chambre,
             'lits' => $lit,
             'patients' => $patient,
-            'sejours' => $sejour
+            'sejours' => $sejour,
+            'user' => $this->getUser()
         ]);
     }
 }

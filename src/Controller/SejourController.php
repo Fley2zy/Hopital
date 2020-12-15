@@ -21,7 +21,7 @@ class SejourController extends AbstractController
     public function index(SejourRepository $sejourRepository): Response
     {
         return $this->render('sejour/index.html.twig', [
-            'sejours' => $sejourRepository->findAll(),
+            'sejours' => $sejourRepository->findAll(),'user' => $this->getUser()
         ]);
     }
 
@@ -44,7 +44,7 @@ class SejourController extends AbstractController
 
         return $this->render('sejour/new.html.twig', [
             'sejour' => $sejour,
-            'form' => $form->createView(),
+            'form' => $form->createView(),'user' => $this->getUser()
         ]);
     }
 
@@ -54,7 +54,7 @@ class SejourController extends AbstractController
     public function show(Sejour $sejour): Response
     {
         return $this->render('sejour/show.html.twig', [
-            'sejour' => $sejour,
+            'sejour' => $sejour,'user' => $this->getUser()
         ]);
     }
 
@@ -74,7 +74,7 @@ class SejourController extends AbstractController
 
         return $this->render('sejour/edit.html.twig', [
             'sejour' => $sejour,
-            'form' => $form->createView(),
+            'form' => $form->createView(),'user' => $this->getUser()
         ]);
     }
 

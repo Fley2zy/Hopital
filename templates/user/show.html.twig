@@ -9,23 +9,23 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ user.id }}</td>
+                <td>{{ users.id }}</td>
             </tr>
             <tr>
                 <th>UserName</th>
-                <td>{{ user.UserName }}</td>
+                <td>{{ users.UserName }}</td>
             </tr>
             <tr>
                 <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ users.roles ? user.roles|json_encode : '' }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
-                <td>{{ user.nom }}</td>
+                <td>{{ users.nom }}</td>
             </tr>
             <tr>
                 <th>Prenom</th>
-                <td>{{ user.prenom }}</td>
+                <td>{{ users.prenom }}</td>
             </tr>
         </tbody>
     </table>

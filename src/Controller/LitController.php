@@ -21,7 +21,7 @@ class LitController extends AbstractController
     public function index(LitRepository $litRepository): Response
     {
         return $this->render('lit/index.html.twig', [
-            'lits' => $litRepository->findAll(),
+            'lits' => $litRepository->findAll(),'user' => $this->getUser()
         ]);
     }
 
@@ -44,7 +44,7 @@ class LitController extends AbstractController
 
         return $this->render('lit/new.html.twig', [
             'lit' => $lit,
-            'form' => $form->createView(),
+            'form' => $form->createView(),'user' => $this->getUser()
         ]);
     }
 
@@ -54,7 +54,7 @@ class LitController extends AbstractController
     public function show(Lit $lit): Response
     {
         return $this->render('lit/show.html.twig', [
-            'lit' => $lit,
+            'lit' => $lit,'user' => $this->getUser()
         ]);
     }
 
@@ -74,7 +74,7 @@ class LitController extends AbstractController
 
         return $this->render('lit/edit.html.twig', [
             'lit' => $lit,
-            'form' => $form->createView(),
+            'form' => $form->createView(),'user' => $this->getUser()
         ]);
     }
 

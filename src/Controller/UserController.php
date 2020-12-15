@@ -24,6 +24,7 @@ class UserController extends AbstractController
     {
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -55,6 +56,7 @@ class UserController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -64,7 +66,8 @@ class UserController extends AbstractController
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', [
-            'user' => $user,
+            'users' => $user,
+            'user' => $this->getUser()
         ]);
     }
 
@@ -83,8 +86,9 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/edit.html.twig', [
-            'user' => $user,
+            'users' => $user,
             'form' => $form->createView(),
+            'user' => $this->getUser()
         ]);
     }
 

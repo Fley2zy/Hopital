@@ -7,11 +7,11 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Accueil</h1>
-                        <a href="{{ path('sejour_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Créer un nouveau patient</a>
                     </div>
+
 
                     <!-- Content Row -->
                     <div class="row">
@@ -101,7 +101,7 @@
                         <div class="col-xl-12 col-lg-7">
                             <!-- Begin Page Content -->
                             <div class="container-fluid">
-
+                                {% for role in user.roles %}{% if role != "ROLE_INFIRMIER" %}
                                 <!-- Page Heading -->
                                 <p class="mb-4">Bienvenue dans l'interface de gestion de patient de l'Hopital de Lille. Vous pourrez ici gerer simplement votre liste de patients. Vous pouvez suivre <a target="_blank"
                                                                                                href="https://datatables.net">la documentation technique</a>.</p>
@@ -131,6 +131,7 @@
                                             </div>
                                         </div>
                                     </a>
+                                    {% for role in user.roles %}{% if role == "ROLE_ADMIN" %}
                                     <a href="/user" class="col-lg-6 mb-4">
                                         <div class="card bg-danger text-white shadow">
                                             <div class="card-body">
@@ -139,12 +140,16 @@
                                             </div>
                                         </div>
                                     </a>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
+                                {% endif %}
+                                    {% endfor %}
                                 <!-- DataTales Example -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Liste des séjours | <a href="{{ path('sejour_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                                        class="fas fa-download fa-sm text-white-50"></i> Ajouter un séjour</a></h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Liste des séjours {% for role in user.roles %}{% if role != "ROLE_INFIRMIER" %}| <a href="{{ path('sejour_new') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                                        class="fas fa-download fa-sm text-white-50"></i> Ajouter un séjour</a>{% endif %}{% endfor %}</h6>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">

@@ -22,6 +22,7 @@ class ChambreController extends AbstractController
     {
         return $this->render('chambre/index.html.twig', [
             'chambres' => $chambreRepository->findAll(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -45,6 +46,7 @@ class ChambreController extends AbstractController
         return $this->render('chambre/new.html.twig', [
             'chambre' => $chambre,
             'form' => $form->createView(),
+            'user' => $this->getUser()
         ]);
     }
 
@@ -55,6 +57,7 @@ class ChambreController extends AbstractController
     {
         return $this->render('chambre/show.html.twig', [
             'chambre' => $chambre,
+            'user' => $this->getUser()
         ]);
     }
 
@@ -75,6 +78,7 @@ class ChambreController extends AbstractController
         return $this->render('chambre/edit.html.twig', [
             'chambre' => $chambre,
             'form' => $form->createView(),
+            'user' => $this->getUser()
         ]);
     }
 
