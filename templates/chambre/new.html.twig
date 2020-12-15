@@ -3,9 +3,13 @@
 {% block title %}New Chambre{% endblock %}
 
 {% block body %}
-    <h1>Create new Chambre</h1>
-
-    {{ include('chambre/_form.html.twig') }}
-
-    <a href="{{ path('chambre_index') }}">back to list</a>
+    <div class="card mb-4">
+        <div class="card-header">
+            Créer une nouvelle chambre
+        </div>
+        <div class="card-body">
+            {{ include('chambre/_form.html.twig') }}
+            <a href="{{ path('chambre_index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Retour à la liste</a>
+        </div>
+    </div>
 {% endblock %}
