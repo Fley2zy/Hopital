@@ -21,7 +21,17 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.UserName }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    {% for role in user.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            administrateur
+                        {% elseif role == "ROLE_ADMINISTRATIF"%}
+                            administratif
+                        {% else %}
+                            infirmier
+                        {% endif %}
+                    {% endfor %}
+                </td>
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
                 <td>
