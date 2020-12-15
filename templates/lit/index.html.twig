@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lit index{% endblock %}
+
+{% block body %}
+    <h1>Lit index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumLit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lit in lits %}
+            <tr>
+                <td>{{ lit.id }}</td>
+                <td>{{ lit.numLit }}</td>
+                <td>
+                    <a href="{{ path('lit_show', {'id': lit.id}) }}">show</a>
+                    <a href="{{ path('lit_edit', {'id': lit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lit_new') }}">Create new</a>
+{% endblock %}
